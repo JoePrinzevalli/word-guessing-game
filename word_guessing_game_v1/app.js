@@ -63,18 +63,15 @@ const checkLetter = button => {
 console.log(checkLetter(checkLetter))
 
 
-
-
-
-qwerty.addEventListener('click', (e) => {
-    clickedButton= e.target.parentNode;
-    if (clickedButton = 'BUTTON') {
-        button.className = 'chosen';
-    }
-    checkLetter(e.target)
+// qwerty.addEventListener('click', (e) => {
+//     clickedButton= e.target.parentNode;
+//     if (clickedButton = 'BUTTON') {
+//         button.className = 'chosen';
+//     }
+//     checkLetter(e.target)
     
-})
-console.log(checkLetter(e.target))
+// })
+
 
 
 
