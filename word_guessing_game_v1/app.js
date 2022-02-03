@@ -12,14 +12,14 @@ addEventListener('click', (e) => {              // do i need to add an element b
     }); 
 
 const phrases = [
-        'treehouse',
-        'movie',
+        'tree house',
+        'new york',
         'video games',
-        'italy',
-        'magic'
+        'chocolate chip cookies',
+        'iron man'
 ];
-//This function gets a random string from the array 'phrases'
-const getRandomPhraseAsArray = (arr) => {
+//This function gets a random string from the array 'phrases', and splits the phrase and returns each letter indivually in an array.
+const getRandomPhraseAsArray = arr => {
     const arrayLength = arr.length;
     let randomPhrase = '';
     randomPhrase = arr[Math.floor(Math.random() * arrayLength)];
@@ -27,5 +27,52 @@ const getRandomPhraseAsArray = (arr) => {
     const splitPhrase = randomPhrase.split('');
     return splitPhrase;
 }
-console.log(getRandomPhraseAsArray(phrases));
+const phraseArray = getRandomPhraseAsArray(phrases);
+
+// This function creates an li element and appends it the ul element with the parent node of div(id = phrase). It then sets the content of the newly created list item to one of the letters prudced in the phrasearray variable.
+const addPhraseToDisplay = arr => {
+    for ( let i = 0; i < phraseArray.length; i++) {
+        let character = phraseArray[i];
+        let item = document.createElement('li');
+        item.innerHTML = character;
+        const list = document.querySelector('ul')
+        list.append(item);
+        if(character.indexOf(' ') >= 0) {
+            item.className = 'space';
+        } else {
+            item.className = 'letter';
+        }
+    }
+}
+
+addPhraseToDisplay(phraseArray);
+
+const checkLetter = prop => {
+    const checkLetter = document.getElementsByClassName('letter');
+    const div = document.getElementsByClassName('keyrow');
+    const button = div.children;
+    for (let i = 0; i < checkLetter.length; i++) {
+        if ( button === checkLetter[i] ) {
+            checkLetter.className = 'show';
+            const match = checkLetter;
+            return match;
+        } else {
+            null
+        }
+    }
+}
+
+
+qwerty.addEventListener('click', (e) => {
+    button = e.target.parentNode;
+    button.className = 'chosen';
+    if () {
+
+    }
+    const word = checkLetter();
+    return word;
+})
+
+
+
 
