@@ -44,34 +44,38 @@ const addPhraseToDisplay = arr => {
         }
     }
 }
-
 addPhraseToDisplay(phraseArray);
 
-const checkLetter = prop => {
+
+
+
+const checkLetter = button => {
     const checkLetter = document.getElementsByClassName('letter');
-    const div = document.getElementsByClassName('keyrow');
-    const button = div.children;
+    let match = null;
     for (let i = 0; i < checkLetter.length; i++) {
-        if ( button === checkLetter[i] ) {
+        if ( button.textContent === checkLetter[i].textContent ) {
             checkLetter.className = 'show';
-            const match = checkLetter;
-            return match;
-        } else {
-            null
-        }
+            match = checkLetter.textContent;
+        } 
     }
+    return match;
 }
+console.log(checkLetter(checkLetter))
+
+
+
 
 
 qwerty.addEventListener('click', (e) => {
-    button = e.target.parentNode;
-    button.className = 'chosen';
-    if () {
-
+    clickedButton= e.target.parentNode;
+    if (clickedButton = 'BUTTON') {
+        button.className = 'chosen';
     }
-    const word = checkLetter();
-    return word;
+    checkLetter(e.target)
+    
 })
+console.log(checkLetter(e.target))
+
 
 
 
