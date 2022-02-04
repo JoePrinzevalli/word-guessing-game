@@ -1,7 +1,10 @@
 const qwerty = document.getElementById('qwerty');
 const phrase = document.getElementById('phrase');
-const missed = 0;
-const startOverlay = document.querySelector('.btn_reset')
+let missed = 0;
+const startOverlay = document.querySelector('.btn_reset');
+let heart = document.querySelector('.tries');
+const win = document.getElementsByClassName('win')
+const lose = document.getElementsByClassName('lose')
 
 //This changes the screen overlay to the game screen from the start screen
 addEventListener('click', (e) => {              // do i need to add an element before addEventListener, like 'startOverlay.addEventListener
@@ -47,30 +50,52 @@ const addPhraseToDisplay = arr => {
 addPhraseToDisplay(phraseArray);
 
 
-
+// This function will be used in the 'qwerty.addEventListener' to see if the button clicked matches a letter from the hidden phrase
 
 const checkLetter = button => {
     const checkLetter = document.getElementsByClassName('letter');
     let match = null;
     for (let i = 0; i < checkLetter.length; i++) {
         if ( button.textContent === checkLetter[i].textContent ) {
-            checkLetter.className = 'show';
+            checkLetter[i].className += ' show';
             match = checkLetter.textContent;
         } 
     }
     return match;
 }
-console.log(checkLetter(checkLetter))
 
 
-// qwerty.addEventListener('click', (e) => {
-//     clickedButton= e.target.parentNode;
-//     if (clickedButton = 'BUTTON') {
-//         button.className = 'chosen';
-//     }
-//     checkLetter(e.target)
-    
-// })
+qwerty.addEventListener('click', (e) => {
+    let buttonClicked = e.target;
+    console.log(buttonClicked)
+
+    if ( buttonClicked.tagName === 'BUTTON' ) {
+        buttonClicked.className += ' chosen';
+        buttonClicked.disabled = true;
+    }
+    checkLetter(buttonClicked);;
+
+    const letterFound = checkLetter(buttonClicked)
+    console.log(letterFound)
+    if (letterFound === null) {
+        missed++;
+        console.log(missed);
+        heart = document.getElementsByClassName('tries').src="images/lostHeart.png";
+    }
+    checkWin();
+})
+
+const checkWin = () => {
+    start.className += ' win';
+    start.className += ' lose';
+    if (document.getElementsByClassName('letter').length === document.getElementsByClassName('show').length) {
+        style.display = win;
+    } else if (missed >= 5){
+        style.display = lose;
+
+    }
+}
+
 
 
 
