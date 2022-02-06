@@ -86,6 +86,8 @@ button {
   color: transparent;
   background: var(--color-neutral-light);
   border-radius: 5px;
+  background-color: var(--color-start);
+  transition: background-color 2s;
 }
 
 .space {
@@ -159,5 +161,25 @@ button {
 }
 
 .lose a {
+  color: var(--color-lose);
+}
+
+
+.refresh-win {
+  display: flex;
+  justify-content: space-around;
+  align-self: center;
+  background-color: white;
+  width: 400px;
+  height: 40px;
+  color: var(--color-win);
+}
+.refresh-lose {
+  display: flex;
+  justify-content: space-around;
+  align-self: center;
+  background-color: white;
+  width: 400px;
+  height: 40px;
   color: var(--color-lose);
 }
