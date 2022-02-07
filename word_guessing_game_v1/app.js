@@ -67,14 +67,14 @@ const checkLetter = button => {
     let match = null;
     for (let i = 0; i < checkLetter.length; i++) {
         if ( button.textContent === checkLetter[i].textContent ) {
-            checkLetter[i].className += ' show'; //why does this 'show' class display twice whe inspecting the <li> child of div #phrase
+            checkLetter[i].classList.add('show');
             match = checkLetter.textContent;
         } 
     }
     return match;
 }
 
-
+// This event listneer puts the class 'chosen' on the letter selcted from the keyboard and changes the full heart to the the lost heart if the user misses a letter
 qwerty.addEventListener('click', (e) => {
     let buttonClicked = e.target;
 
@@ -120,13 +120,9 @@ refreshButton.addEventListener('click', reloadPage = () => {
     return reload;
 } );
 
-// const playAgainButton = () => {
-//     if (checkWin()) {
-//         refreshButton.innerHTML = 'Press Here To Play !';
-//         refreshButton.setAttribute = ('href', 'file:///Users/joeprinzevalli/Desktop/Team%20Treehouse/word-guessing-game/word_guessing_game_v1/index.html') 
-//     }
-// };
-// refreshButton.addEventListener = ('click', playAgainButton());
+
+
+
 
 
 
